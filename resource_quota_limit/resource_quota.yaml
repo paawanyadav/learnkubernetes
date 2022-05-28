@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: quota-demo
+  namespace: demo
+spec:
+  hard:
+    pods: "3"
+    configmaps: "1"
+    secrets: "2"

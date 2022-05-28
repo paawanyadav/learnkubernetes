@@ -1,0 +1,19 @@
+# cron job is used to schedule job as per requirement
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: helloworld-cron
+spec:
+  schedule: "* * * * *"
+  #suspend: true
+  successfulJobsHistoryLimit: 0 # its limit the  succesfullyup to 0 "watch get all -o wide" history
+  failedJobsHistoryLimit: 0 #its limit the failed limit 0
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: busybox
+            image: busybox
+            command: ["echo","Hello Kubernetes"]
+          restartPolicy: Never

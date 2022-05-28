@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  namespace: demo
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+#    resources:  # here you define how much your application will use memory otherwise it will not run and give u error
+#      limits:
+#        memory: "200Mi"

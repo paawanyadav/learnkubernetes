@@ -1,0 +1,16 @@
+#	Back Off Limit -- It try to run command unless it executes if pods fails it will create anotherone but it will try again and again
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: helloworld
+spec:
+  backoffLimit: 2 #it will try to run until it reach back off limit here is 2
+  activeDeadlineSeconds: 5 # if any pod took more than 5 seconds it will be deleted
+  template:
+    spec:
+      containers:
+      - name: busybox
+        image: busybox
+        command: ["sleep","120"]
+      restartPolicy: Never
+  backoffLimit: 2

@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: helloworld
+spec:
+  completions: 4 #how many time want to run job
+  parallelism: 2 #how many jobs wants to run in parallel
+  template:
+    spec:
+      containers:
+      - name: busybox
+        image: busybox
+        command: ["echo","Kubernetes"]
+      restartPolicy: Never

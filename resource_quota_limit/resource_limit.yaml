@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: limit-demo
+  namespace: demo
+spec:
+  hard:
+    limits.memory: "500Mi" # It shows current namespace can't use more than 500Mi memory
+    requests.memory: "100Mi" # It shows single resource can't use more than 100Mi memory
